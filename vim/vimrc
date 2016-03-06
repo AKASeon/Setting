@@ -26,21 +26,12 @@ set textwidth=100                   " 글자수 100자 이상이면 자동 개�
 set hlsearch                        " / ? 명령등으로 찾은 문자열을 하이라이트"
 set incsearch                       " 글자를 치면 그에 맞는것을 치는 동안 보여주기 "
 
-"filetype on "                      " 파일 종류에 따른 구문을 강조 표시 "
+filetype on                       " 파일 종류에 따른 구문을 강조 표시
 
 set ls=2                            " 항상 status 라인을 표시 "
 
 set ut=300000                       " 몇 milliseconds 후에 swap 파일 생성 5분 "
 set uc=100                          " 몇 글자 이상 써야 swap 파일 생성 "
-
-" For python http://www.vim.org/scripts/script.php?script_id=790 "
-let python_version_2=1              " python 2 문법"
-let python_highlight_all=1          " 모든 강조 기능을 on"
-
-" Python Tab-complete http://www.vim.org/scripts/script.php?script_id=850 "
-filetype plugin on
-let g:pydiction_location='~/.vim/pydiction'
-let g:pydiction_menu_height=3
 
 " Show Function name"
 fun! ShowFuncName()
@@ -55,10 +46,9 @@ endfun
 " Key Map "
 map f :call ShowFuncName() <CR>
 
-
-
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
+
 call vundle#begin()
 " alternatively, pass a path where Vundle should install plugins
 "call vundle#begin('~/some/path/here')
@@ -89,7 +79,8 @@ Plugin 'Tagbar'
 Plugin 'The-NERD-tree'
 Plugin 'a.vim'       
 Plugin 'indentpython.vim' 
-Plugin 'instant-markdown.vim'
+"Plugin 'instant-markdown.vim'
+Plugin 'pathogen.vim'
 Plugin 'python.vim'         
 Plugin 'taglist-plus'      
 Plugin 'taglist.vim'  
@@ -100,7 +91,7 @@ call vundle#end()            " required
 
 filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
-"filetype plugin on
+filetype plugin on
 "
 " Brief help
 " :PluginList       - lists configured plugins
@@ -110,3 +101,17 @@ filetype plugin indent on    " required
 "
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
+
+
+" For python http://www.vim.org/scripts/script.php?script_id=790 "
+let python_version_2=1              " python 2 문법"
+let python_highlight_all=1          " 모든 강조 기능을 on"
+
+" Python Tab-complete http://www.vim.org/scripts/script.php?script_id=850 "
+filetype plugin on
+let g:pydiction_location='~/.vim/pydiction'
+let g:pydiction_menu_height=3
+
+" scala
+let g:scala_use_builtin_tagbar_defs = 1
+
